@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource-backend
+spec:
+  defaultBackend:
+    resource:
+      apiGroup: k8s.example.com
+      kind: StorageBucket
+      name: static-assets
+  rules:
+    - host: altersis.com
+      http:
+        paths:
+          - path: /employee/all
+            backend:
+              resource:
+              -backend:
+               serviceName: back-service
+               servicePort: 8087 
+                apiGroup: k8s.example.com
+                kind: StorageBucket
+                name: back-service
+

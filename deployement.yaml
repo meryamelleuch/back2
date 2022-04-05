@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+spec:
+  selector:
+    matchLabels:
+      app: back2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: back2
+    spec:
+      containers:
+      - name: back
+        image: mariemelleuch/back:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8083
