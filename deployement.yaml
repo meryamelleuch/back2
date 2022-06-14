@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: back
-        image: mariemelleuch/back:1.0
+        image: mariemelleuch/back:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8083
